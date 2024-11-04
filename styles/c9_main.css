@@ -75,12 +75,12 @@ header img {
 }
 #nav_menu > ul::after {
     content: "";
-    clear: both;
+
     display: block;
 }
 /* the styles for the main content */
 main {
-	clear: left;
+
 }
 
 /* the styles for the section */
@@ -156,7 +156,6 @@ aside img {
 /* the styles for the footer */
 footer {
 	background-color: #931420;
-	clear: both;
 
 }
 footer p {
@@ -188,7 +187,10 @@ footer p {
 		width: 95%;
 	}
 	aside {
-		float: none;
+
+		
+		
+		
 		padding-right: 2.5%;
 		width: 95%;
 	}
