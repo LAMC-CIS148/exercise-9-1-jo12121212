@@ -1,57 +1,61 @@
 /* the styles for the elements */
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 html {
-    background-color: white;
+	background-color: white;
 }
 body {
-    font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    width: 99%;
+    width: 99%;                     /* changed from 800 pixels */
     max-width: 960px;
     margin: 0 auto;
     border: 3px solid #931420;
     background-color: #fffded;
 }
 a:focus, a:hover {
-    font-style: italic;
+	font-style: italic;
 }
 
 /* the styles for the header */
 header {
-    padding: 1.5em 0 2em 0;
-    border-bottom: 3px solid #931420;
-    background-image: linear-gradient(30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	padding: 1.5em 0 2em 0;
+	border-bottom: 3px solid #931420;
+	background-image: linear-gradient(
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 }
 header h2 {
-    font-size: 175%;
-    color: #800000;
+	font-size: 175%;
+	color: #800000;
 }
 header h3 {
-    font-size: 130%;
-    font-style: italic;
+	font-size: 130%;
+	font-style: italic;
 }
 header img {
-    float: left;
-    padding: 0 3.75%;
+	float: left;
+	padding: 0 3.75%;            /* 30 / 800 x 100 */
 }
 .shadow {
-    text-shadow: 2px 2px 2px #800000;
+	text-shadow: 2px 2px 2px #800000;
 }
 
 /* the styles for the navigation menu */
 #nav_menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex; /* Changed to flex */
-    justify-content: space-evenly; /* Evenly distribute the items */
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex; /* Set to flex container */
+	flex-basis: 100%; /* Occupies 100% of the width */
+	justify-content: space-between; /* Even space between items */
 }
+
 #nav_menu ul li {
-    flex-basis: 20%; /* Set to 20% width */
+	flex-basis: 20%; /* Use flex-basis instead of width */
 }
+
 #nav_menu ul li a {
     display: block;
     text-align: center;
@@ -61,166 +65,162 @@ header img {
     color: white;
     font-weight: bold;
 }
+
 #nav_menu a.current {
-    color: yellow;
+	color: yellow;
 }
+
 #nav_menu ul ul {
-    width: 100%;
+	width: 100%;
     display: none;
     position: absolute;
     top: 100%;
 }
+
 #nav_menu ul ul li {
+	float: none; /* This is fine, since we're using flex */
 }
+
 #nav_menu ul li:hover > ul {
-    display: block;
+	display: block;
 }
+
 #nav_menu > ul::after {
     content: "";
-    display: block;
+    clear: both; /* This can be removed as we're not using floats */
 }
 
 /* the styles for the main content */
 main {
-    display: flex; /* Make the main content a flex container */
+	display: flex; /* Set to flex container */
 }
+
 section {
-    flex-basis: 70%; /* Set flex-basis to 70% */
-    padding: 0 2.5% 20px 2.5%;
+	flex-basis: 70%; /* Set flex-basis to 70% */
+	padding: 0 2.5% 20px 2.5%; /* Keep the padding */
+	order: 2; /* Set order so section appears after aside */
 }
+
 aside {
-    flex-basis: 30%; /* Set flex-basis to 30% */
-    padding: 0 0 20px 2.5%;
-    order: -1; /* Move aside before section */
+	flex-basis: 30%; /* Set flex-basis to 30% */
+	padding: 0 0 20px 2.5%; /* Keep the padding */
+	order: 1; /* Set order so aside appears before section */
 }
+
+/* the styles for the section */
 section h1 {
-    font-size: 150%;
-    padding: .5em 0 .25em 0;
-    margin: 0;
+	font-size: 150%;
+	padding: .5em 0 .25em 0;
+	margin: 0;
 }
 section h2 {
-    color: #800000;
-    font-size: 130%;
-    padding: .5em 0 .25em 0;
+	color: #800000;
+	font-size: 130%;
+	padding: .5em 0 .25em 0;
 }
 section p {
-    padding-bottom: .5em;
+	padding-bottom: .5em;
 }
 section blockquote {
-    padding: 0 2em;
-    font-style: italic;
+	padding: 0 2em;
+	font-style: italic;
 }
 section ul {
-    padding: 0 0 .25em 1.25em;
-    list-style-type: circle;
+	padding: 0 0 .25em 1.25em;
+	list-style-type: circle;
 }
 section li {
-    padding-bottom: .35em;
+	padding-bottom: .35em;
 }
 
 /* the styles for the article */
 article {
-    padding: .5em 0;
-    border-top: 2px solid #800000;
-    border-bottom: 2px solid #800000;
+	padding: .5em 0;
+	border-top: 2px solid #800000;
+	border-bottom: 2px solid #800000;
 }
 article h2 {
-    padding-top: 0;
+	padding-top: 0;
 }
 article h3 {
-    font-size: 105%;
-    padding-bottom: .25em;
+	font-size: 105%;
+	padding-bottom: .25em;
 }
 article img {
-    float: right;
-    max-width: 40%;
-    min-width: 150px;
-    margin: .5em 0 1em 1em;
-    border: 1px solid black;
+	float: right; /* float property retained */
+	max-width: 40%;
+	min-width: 150px;
+	margin: .5em 0 1em 1em;
+	border: 1px solid black;
 }
 
 /* the styles for the aside */
-aside h2 {
-    color: #800000;
-    font-size: 130%;
-    padding: .5em 0 .25em 0;
-}
-aside h3 {
-    font-size: 105%;
-    padding-bottom: .25em;
-}
-aside img {
-    padding-bottom: 1em;
+aside {
+	flex-basis: 30%; /* Set flex-basis to 30% */
+	padding: 0 0 20px 2.5%; /* Keep the padding */
 }
 
 /* the styles for the footer */
 footer {
-    background-color: #931420;
+	background-color: #931420;
 }
 footer p {
-    text-align: center;
-    color: white;
-    padding: 1em 0;
+	text-align: center;
+	color: white;
+	padding: 1em 0;
 }
 #mobile_menu {
-    display: none;
+	display: none;
 }
 
 @media only screen and (max-width: 734px) {
-    section h1 {
-        font-size: 125%;
-    }
-    section h2, aside h2 {
-        font-size: 110%;
-    }
-    aside h3 a {
-        font-size: 85%;
-    }
+	section h1 {
+		font-size: 125%;
+	}
+	section h2, aside h2 {
+		font-size: 110%;
+	}
+	aside h3 a {
+		font-size: 85%;
+	}
 }
 
 @media only screen and (max-width: 648px) {
-    header img {
-        float: none;
-    }
-    header {
-        text-align: center;
-    }
-    section {
-        float: none;
-        width: 100%; /* Set to 100% to occupy the full screen width */
-    }
-    aside {
-        width: 100%; /* Set to 100% to occupy the full screen width */
-        padding-right: 2.5%;
-    }
-    article img {
-        max-width: 30%;
-    }
-    #speakers {
-        column-count: 2;
-    }
-    #nav_menu {
-        display: none;
-    }
-    #mobile_menu {
-        display: block;
-    }
-    .slicknav_menu {
-        background-color: #800000 !important;
-    }
-    main {
-        flex-direction: column; /* Change flex direction to column */
-    }
-    section {
-        order: 1; /* Ensure section comes after aside */
-    }
-    aside {
-        order: 0; /* Ensure aside comes before section */
-    }
+	header img { float: none; }
+	header { text-align: center; }
+
+	/* Change main to a column layout */
+	main {
+		flex-direction: column; /* Stack items vertically */
+	}
+
+	section {
+		flex-basis: 100%; /* Full width for section */
+		order: 1; /* Ensure section appears first */
+	}
+
+	aside {
+		flex-basis: 100%; /* Full width for aside */
+		order: 2; /* Ensure aside appears second */
+	}
+
+	article img { max-width: 30%; }
+	#speakers {
+		column-count: 2;
+	}
+	#nav_menu {
+		display: none;
+	}
+	#mobile_menu {
+		display: block;
+	}
+	.slicknav_menu {
+		background-color: #800000 !important;
+	}
 }
 
 @media only screen and (max-width: 414px) {
-    body {
-        font-size: 90%;
-    }
+	body { font-size: 90%; }
 }
+
+
